@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background: #3d70d6;
+  font-family: 'Montserrat', 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color: rgb(1, 11, 68);
+}
+
+input{ border: none; font-family: "Times New Roman", Times, serif; font-size: 16px; color:rgb(68, 49, 177)}
+
+
+btn:hover {
+   background-color: darkgray;
+}
+
+.app-title{
+  text-align: center;
+  color: rgb(162, 185, 216);
+  font-size: 40px;
+}
+
+.add-task{
+  text-align: center;
+  color: rgb(1, 11, 68);
+  font-size: 25px;
+}
+
+.container{
+  border: 2px solid rgb(15, 30, 167);
+  border-radius: 8px;
+
+}
+
+.crossed-line {
+  text-decoration: line-through;
+}
+
+.italic {
+  font-style: italic;
+  font-size: 20px;
+  color: rgb(162, 185, 216);
+}
