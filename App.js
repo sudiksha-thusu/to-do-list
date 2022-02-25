@@ -12,7 +12,7 @@ class App extends Component
     {
       newItem:"",
       list:[]
-    }
+    };
   }
 
   updateInput(key, value)
@@ -29,7 +29,8 @@ class App extends Component
 
     const newItem={
       id: 1+Math.random(),
-      value: this.state.newItem.slice()
+      value: this.state.newItem.slice(),
+      isDeleted:false
     };
 
     //copy of current list of items
@@ -55,6 +56,25 @@ class App extends Component
 
     this.setState({list: updatedList});
   }
+
+  crossLine(id)
+  {
+    this.setState(state => ({
+      list: state.list.map(item => {
+        if (item.id === id) {
+          // suppose to update
+          return {
+            ...item,
+            isDeleted: !item.isDeleted
+          };
+        } else {
+          return item;
+        }
+      })
+    }));
+    
+  };
+  
 
   render() {
     return (
@@ -84,27 +104,27 @@ class App extends Component
         onChange={e => this.updateInput("newItem", e.target.value)}
        />
 
-      <btn>
+      
       <button
          onClick={() => this.addItem()}
       >
         Add
       </button>
-      </btn>
-
+    
       <br/>
       <ul>
         {
           this.state.list.map(item => {
             return(
-              <li key={item.id}>
-                {item.value}
-
-                <button
-                  onClick={() => this.deleteItem(item.id)}
-                >
-                  X
-                </button>
+              <li key={item.id}>  {item.isDeleted===false?
+                <span> 
+                  {item.value} 
+                  <button onClick={() => this.crossLine(item.id)}>
+                Done
+               </button>  </span>
+              : <span style={{textDecoration:"line-through"}}> {item.value} </span>} 
+              <button onClick={() => this.deleteItem(item.id)}>X</button>
+             
               </li>
             )
           })
