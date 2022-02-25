@@ -33,3 +33,7 @@ btn:hover {
   border-radius: 8px;
 
 }
+
+.crossed-line {
+  text-decoration: line-through;
+}
